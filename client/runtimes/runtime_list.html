@@ -1,0 +1,85 @@
+<template name="runtimeList">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Viaduct Runtimes
+      <div class="pull-right">
+        <button class="btn btn-xs btn-info btnAddEnvironment"><span class="glyphicon glyphicon-plus"></span> Environment</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <!--
+
+      Changed the use of rows and columns to tables
+
+      <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-3">IP Address / Machine Name</div>
+        <div class="col-xs-2">Port Number</div>
+        <div class="col-xs-3">Name</div>
+        <div class="col-xs-2">Username</div>
+        <div class="col-xs-2">Password</div>
+      </div>
+-->
+      <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+            <th class="col-xs-1"></th>
+            <th class="col-xs-2">IP Address / Machine Name</th>
+            <th class="col-xs-1">Port Number</th>
+            <th class="col-xs-2">Name</th>
+            <th class="col-xs-2">Username</th>
+            <th class="col-xs-2">Password</th>
+            <th class="col-xs-1"></th>
+        </thead>
+        <tbody>
+          {{#if addEnvironment}}
+          <tr>
+            <td class="col-xs-1"></td>
+            <td class="col-xs-2">
+              <div class="form-group {{newIPStatus}}">
+                <input class="form-control newRuntimeIP" id="newRuntimeIP" name="newRuntimeIP" type="text" value="" placeholder="machine name or IP (eg. 127.0.0.1)">
+              </div>
+            </td>
+            <td class="col-xs-1">
+              <div class="form-group {{newPortStatus}}">
+                <input class="form-control newRuntimePort" id="newRuntimePort" name="newRuntimePort" type="text" value="" placeholder="8181">
+              </div>
+            </td>
+            <td class="col-xs-2">
+              <div class="form-group">
+                <input class="form-control newRuntimeName" id="newRuntimeName" name="newRuntimeName" type="text" value="" placeholder="Friendly name">
+              </div>
+            </td>
+            <td class="col-xs-2">
+              <div class="form-group">
+                <input class="form-control newRuntimeUser" id="newRuntimeUser" name="newRuntimeUser" type="text" value="" placeholder="User Name">
+              </div>
+            </td>
+            <td class="col-xs-2">
+              <div class="form-group">
+                <input class="form-control newRuntimePassword" id="newRuntimePassword" name="newRuntimePassword" type="password" value="" placeholder="">
+              </div>
+            </td>
+
+            <td class="col-xs-1">
+              <div class="btn-toolbar">
+                <button class="btn btn-xs pull-right btn-danger btnCancelAdd"><span class="glyphicon glyphicon-remove"></span></button>
+                <button class="btn btn-xs pull-right btn-success btnSaveAdd {{isDisabled}}"><span class="glyphicon glyphicon-ok"></span></button>
+              </div>
+            </td>
+          </tr>
+          {{/if}}
+
+          {{#each runtimeListEntry}}
+            {{> runtimeItem}}
+          {{/each}}
+        </tbody>
+      </table>
+
+    </div>
+<!--
+</div> -->
+    </div>
+  </div>
+
+</template>

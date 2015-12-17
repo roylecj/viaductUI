@@ -1,0 +1,58 @@
+<template name="processList">
+  <div class="panel panel-primary {{viewModeType}}">
+    <div class="panel-heading">
+      Viaduct Processes for {{runtimeName}} {{currentTime}}
+      <div class="pull-right">
+          <button class="btn btn-xs btn-info btnViewMode"><span class="glyphicon {{viewModeIcon}}"></span></button>
+          <button class="btn btn-xs {{isFilterFlag}} btnFilter"><span class="glyphicon glyphicon-filter"></span></button>
+          <button class="btn btn-xs {{autoRefresh}} btnAutoRefresh"><span class="glyphicon glyphicon-refresh"></span></button>
+      </div>
+
+      {{#if showFilters}}
+      <table class="table table-responsive">
+        <tr>
+          <td class="col-xs-5">
+            <input class="form-control filterName" name="filterName" placeholder="Enter filter for process name" />
+          </td>
+          <td>
+          </td>
+        </tr>
+    </table>
+      {{/if}}
+    </div>
+    <div class="panel-body">
+{{#if viewModeList}}
+      <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+            <th>Process</th>
+            <th></th>
+        </thead>
+        <tbody>
+          {{#each viaductProcess}}
+            {{> processItem}}
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+{{else}}
+  <div class="panel-body">
+    <div class="row">
+      {{#each viaductProcess}}
+        {{> processItem}}
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+    </div>
+
+<!--
+    <div class="list-group">
+      {{#each viaductProcess}}
+        {{> processItem}}
+      {{/each}}
+    </div>
+-->
+  </div>
+</template>

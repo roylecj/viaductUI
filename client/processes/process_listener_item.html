@@ -1,0 +1,81 @@
+<template name="processListenerItem">
+  {{#if viewModeCard}}
+    <div class="col-xs-1">
+      <button class="pull-left btn btn-xs {{runningStatus}} runningState"><span class="glyphicon {{runningStatusText}}"></span></button>
+    </div>
+    <div class="col-xs-5">
+      {{listenerName}}
+    </div>
+      <div class="pull-right">
+        <span class="label label-info">{{throughput}}</span>
+        <span class="label label-success">{{success}}</span>
+        <span class="label label-danger">{{failed}}</span>
+      </div>
+<!--
+  <div class="col-xs-1"></div>
+  <div class="col-xs-7">
+    {{listenerName}}
+  </div>
+  <div class="col-xs-1">
+    <span class="label label-info">{{throughput}}</span>
+  </div>
+  <div class="col-xs-1">
+    <span class="label label-success">{{success}}</span>
+  </div>
+  <div class="col-xs-1">
+    <span class="label label-danger">{{failed}}</span>
+  </div>
+  <div class="col-xs-1"></div>
+-->
+  {{else}}
+  <li class="list-group-item">
+    <button class="btn btn-xs {{runningStatus}} runningState"><span class="glyphicon {{runningStatusText}}"></span></button>
+    {{#if showMoreDetails}}
+    <button class="btn btn-xs btn-info editListener"><span class="glyphicon glyphicon-pencil"></span></button>
+    {{/if}}
+    <span class="badge {{connectionState}} pull-right"><span class="{{listenerTypeIcon}}"></span> {{listenerTypeName}}</span>
+    {{listenerName}}
+    {{#if showMoreDetails}}
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-4">
+      </div>
+      <div class="col-xs-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-4">
+        Successful:
+      </div>
+      <div class="col-xs-2">
+        {{success}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-4">
+        Failed:
+      </div>
+      <div class="col-xs-2">
+        {{failed}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-4">
+        Throughput (mps):
+      </div>
+      <div class="col-xs-2">
+        {{throughput}}
+      </div>
+    </div>
+
+    {{else}}
+    <span class="badge alert-info">{{throughput}}</span>
+    <span class="badge alert-danger">{{failed}}</span>
+    <span class="badge alert-success">{{success}}</span>
+    {{/if}}
+  </li>
+  {{/if}}
+</template>

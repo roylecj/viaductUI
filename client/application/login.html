@@ -1,0 +1,42 @@
+<template name="login">
+
+  <form class="main form page">
+
+  <div class="form-group">
+    <label class="control-label" for="loginName">Login</label>
+    <div class="controls">
+        <input name="loginName" id="loginName" type="text" value="" placeholder="" class="form-control"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="password">Password</label>
+    <div class="controls">
+      <input name="password" id="password" type="password" value="" placeholder="" class="form-control"/>
+    </div>
+  </div>
+
+  {{#if newUser}}
+  <div class="form-group">
+    <label class="control-label" for="confirmPassword">Confirm Password</label>
+    <div class="controls">
+      <input name="confirmPassword" id="confirmPassword" type="password" value="" placeholder="" class="form-control"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="personName">Name</label>
+    <div class="controls">
+        <input name="personName" id="personName" type="text" value="" placeholder="" class="form-control"/>
+    </div>
+  </div>
+  {{/if}}
+  <input type="submit" value="Login" class="btn btn-primary"/>
+  {{#if newUser}}
+  <button class="btn btn-info btnCreateUser">Create</button>
+  {{else}}
+  <button class="btn btn-danger btnNewUser">New User</button>
+  {{/if}}
+</form>
+
+</template>

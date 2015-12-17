@@ -1,0 +1,22 @@
+<template name="runtimeEntry">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Processes
+      <div class="pull-right">
+      <button class="btn btn-xs btn-info btnAddEnvironment"><span class="glyphicon glyphicon-plus"></span> Environment</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <tbody>
+          {{#each runtimeListEntry}}
+            {{> runtimeItem}}
+          {{/each}}        
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+
+</template>

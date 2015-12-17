@@ -1,0 +1,88 @@
+<template name="runtimeItem">
+<tr>
+    {{#if editMode}}
+    <!--
+      <div class="row">
+      <div class="col-xs-3">
+        <input class="form-control runtimeIP" id="newRuntimeIP" name="newRuntimeIP" type="text" value="{{ipAddress}}" placeholder="machine name or IP (eg. 127.0.0.1)">
+      </div>
+      <div class="col-xs-2">
+        <input class="form-control runtimePort" id="newRuntimePort" name="newRuntimePort" type="text" value="{{portNumber}}" placeholder="8181">
+      </div>
+      <div class="col-xs-3">
+        <input class="form-control" id="newRuntimeName" name="newRuntimeName" type="text" value="{{runtimeName}}" placeholder="Friendly name">
+      </div>
+      <div class="col-xs-2">
+        <input class="form-control" id="newRuntimeUser" name="newRuntimeUser" type="text" value="{{runtimeUser}}" placeholder="User name">
+      </div>
+      <div class="col-xs-2">
+        <input class="form-control" id="newRuntimePassword" name="newRuntimePassword" type="password" value="{{runtimePasswd}}" placeholder="">
+      </div>
+      </div>
+-->
+      <td class="col-xs-1"></td>
+      <td class="col-xs-2">
+        <div class="form-group {{editIPStatus}}">
+          <input class="form-control runtimeIP" id="newRuntimeIP" name="newRuntimeIP" type="text" value="{{ipAddress}}" placeholder="machine name or IP (eg. 127.0.0.1)">
+        </div>
+      </td>
+      <td class="col-xs-1">
+        <div class="form-group {{editPortStatus}}">
+          <input class="form-control runtimePort" id="newRuntimePort" name="newRuntimePort" type="text" value="{{portNumber}}" placeholder="8181">
+        </div>
+      </td>
+      <td class="col-xs-2">
+        <input class="form-control" id="newRuntimeName" name="newRuntimeName" type="text" value="{{runtimeName}}" placeholder="Friendly name">
+      </td>
+      <td class="col-xs-2">
+        <input class="form-control" id="newRuntimeUser" name="newRuntimeUser" type="text" value="{{runtimeUser}}" placeholder="User name">
+      </td>
+      <td class="col-xs-2">
+        <input class="form-control" id="newRuntimePassword" name="newRuntimePassword" type="password" value="{{runtimePasswd}}" placeholder="">
+      </td>
+
+      <td class="col-xs-1">
+        <div class="btn-toolbar">
+          <button class="btn btn-xs pull-right btn-danger btnCancelEdit"><span class="glyphicon glyphicon-remove"></span></button>
+          <button class="btn btn-xs pull-right btn-success btnSaveEdit {{isDisabled}}"><span class="glyphicon glyphicon-ok"></span></button>
+        </div>
+      </td>
+
+    {{else}}
+      <td class="col-xs-1">
+        <div class="hidden">{{checkConnectionState}}</div>
+        <button class="btn btn-xs {{connectionState}} btnRuntime"><span class="glyphicon {{connectIcon}}"></span></button>
+      </td>
+      <td class="col-xs-2">{{ipAddress}}</td>
+      <td class="col-xs-1">{{portNumber}}</td>
+      <td class="col-xs-2">{{runtimeName}}</td>
+      <td class="col-xs-2">{{runtimeUser}}</td>
+      <td class="col-xs-2">*****</td>
+      <td class="col-xs-1">
+        <div class="btn-toolbar">
+          <button class="btn btn-xs btn-danger pull-right btnRemove"><div class="hidden" id="deleteId" name="deleteId">{{_id}}</div><span class="glyphicon glyphicon-remove"></span></button>
+          <button class="btn btn-xs btn-info pull-right btnEdit"><div class="hidden" id="editId" name="editId">{{_id}}</div><span class="glyphicon glyphicon-pencil"></span></button>
+        </div>
+      </td>
+<!--
+  <div class="row">
+      <div class="hidden">{{checkConnectionState}}</div>
+      <button class="btn btn-xs {{connectionState}} btnRuntime"><span class="glyphicon {{connectIcon}}"></span></button>
+    <div class="col-xs-3">{{ipAddress}}</div>
+    <div class="col-xs-2">{{portNumber}}</div>
+    <div class="col-xs-3">{{runtimeName}}</div>
+    <div class="col-xs-2">{{runtimeUser}}</div>
+    <div class="col-xs-2">*****</div>
+    <div class="col-xs-2">
+      <button class="btn btn-xs btn-info btnEdit"><div class="hidden" id="editId" name="editId">{{_id}}</div><span class="glyphicon glyphicon-pencil"></span></button>
+      <button class="btn btn-xs btn-danger btnRemove"><div class="hidden" id="deleteId" name="deleteId">{{_id}}</div><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+  </div>
+
+-->
+    {{/if}}
+
+
+
+  </tr>
+</template>
