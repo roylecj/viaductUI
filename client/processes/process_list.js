@@ -20,17 +20,6 @@ Template.processList.helpers({
 /*  nextPoll: function() {
     return Session.get("nextPoll");
   }, */
-  currentTime: function() {
-    if (Session.get("refreshData")) {
-
-      // We need to refresh the view of processes
-
-      if (Session.get("autoRefresh")) {
-
-        Session.set("refreshData", false);
-      }
-    }
-  },
   viewModeType: function() {
     if (Session.get("viewModeList")) {
       return ""
